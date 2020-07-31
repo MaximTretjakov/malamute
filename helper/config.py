@@ -4,7 +4,7 @@ import logging
 from json import JSONDecodeError
 from typing import Dict, NoReturn, AnyStr
 
-from core.errors import EmptyConfigError
+from helper.errors import EmptyConfigError
 
 logger = logging.getLogger('malamute_global_logger')
 
