@@ -1,7 +1,8 @@
 from __future__ import annotations
 from typing import Any
+import subprocess
 import asyncio
-import time
+import os
 
 from cor.base_handler import AbstractHandler
 from helper.git import git
@@ -10,18 +11,18 @@ from helper.git import git
 class GitHandler(AbstractHandler):
     def handle(self, request: Any) -> str:
         if request:
-            start = time.time()
             asyncio.run(git.main(request), debug=True)
-            end = time.time()
-            return f'Total time : {end - start:.2}'
+            super().handle(request)
         else:
             return super().handle(request)
 
 
 class BuildHandler(AbstractHandler):
     def handle(self, request: Any) -> str:
-        if request == "Nut":
-            return f"Squirrel: I'll eat the {request}"
+        if request:
+            path = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+            result = subprocess.run([path + '\\build_project.bat'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            return f"BuildHandler says: {result.stdout} : {result.stderr}"
         else:
             return super().handle(request)
 
