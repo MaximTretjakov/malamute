@@ -13,24 +13,23 @@ def executor(tasks_obj):
     # обработка задач
     result = git.handle(tasks_obj)
     if result:
-        print(f"  {result}", end="")
+        print(f" Handler response: {result}", end="")
     else:
         print(f"  {tasks_obj} was left untouched.", end="")
 
 
 if __name__ == '__main__':
+    # все это будет приходить с фронта
     t = {
         "targets": [
-            "https://github.com/MaximTretjakov/malamute/archive/dev.zip",
-            "https://github.com/MaximTretjakov/flint-tube/archive/master.zip",
-            "https://github.com/MaximTretjakov/GeekShop/archive/master.zip",
+            "https://github.com/MaximTretjakov/questionnaire/archive/master.zip"
         ],
         "build_dir": [
-            "C:\\Users\\KARMA\\Desktop\\Projects\\build\\malamute.zip",
-            "C:\\Users\\KARMA\\Desktop\\Projects\\build\\flint-tube.zip",
-            "C:\\Users\\KARMA\\Desktop\\Projects\\build\\GeekShop.zip",
+            r"C:\Users\KARMA\Desktop\Projects\build\questionnaire.zip"
         ],
-        "chunk_size": 50
+        "chunk_size": 50,
+        "zip_name": "questionnaire.zip",
+        "build_script_path": r"C:\Users\KARMA\Desktop\Projects\build\questionnaire-master\build_project.bat"
     }
 
     executor(t)
