@@ -29,7 +29,8 @@ if __name__ == '__main__':
         ],
         "chunk_size": 50,
         "zip_name": "questionnaire.zip",
-        "build_script_path": r"C:\Users\KARMA\Desktop\Projects\build\questionnaire-master\build_project.bat"
+        "build_script_path": r"C:\Users\KARMA\Desktop\Projects\build\questionnaire-master\build_project.bat",
+        "cwd": r'C:\Users\KARMA\Desktop\Projects\build\questionnaire-master'
     }
 
     executor(t)
