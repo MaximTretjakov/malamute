@@ -20,8 +20,9 @@ class GitHandler(AbstractHandler):
 class BuildHandler(AbstractHandler):
     def handle(self, request: Any) -> str:
         if request:
-            result = subprocess.run([request['build_script_path']], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            return f"BuildHandler says: {result.stdout} : {result.stderr}"
+            process = subprocess.Popen(request['build_script_path'], cwd=request['cwd'])
+            stdout, stderr = process.communicate()
+            print(f'build handler says : {stdout} | {stderr}')
         else:
             return super().handle(request)
 
