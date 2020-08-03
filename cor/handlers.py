@@ -1,17 +1,17 @@
 from __future__ import annotations
 from typing import Any
 import subprocess
-import asyncio
-import os
 
 from cor.base_handler import AbstractHandler
 from helper.git import git
+from helper.common import unzip_project
 
 
 class GitHandler(AbstractHandler):
     def handle(self, request: Any) -> str:
         if request:
-            asyncio.run(git.main(request), debug=True)
+            git.download_project(request)
+            unzip_project(request)
             super().handle(request)
         else:
             return super().handle(request)
@@ -20,8 +20,7 @@ class GitHandler(AbstractHandler):
 class BuildHandler(AbstractHandler):
     def handle(self, request: Any) -> str:
         if request:
-            path = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-            result = subprocess.run([path + '\\build_project.bat'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            result = subprocess.run([request['build_script_path']], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             return f"BuildHandler says: {result.stdout} : {result.stderr}"
         else:
             return super().handle(request)

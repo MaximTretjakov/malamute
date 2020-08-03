@@ -19,14 +19,17 @@ def executor(tasks_obj):
 
 
 if __name__ == '__main__':
+    # все это будет приходить с фронта
     t = {
         "targets": [
             "https://github.com/MaximTretjakov/questionnaire/archive/master.zip"
         ],
         "build_dir": [
-            "C:\\Users\\KARMA\\Desktop\\Projects\\build\\questionnaire.zip"
+            r"C:\Users\KARMA\Desktop\Projects\build\questionnaire.zip"
         ],
-        "chunk_size": 50
+        "chunk_size": 50,
+        "zip_name": "questionnaire.zip",
+        "build_script_path": r"C:\Users\KARMA\Desktop\Projects\build\questionnaire-master\build_project.bat"
     }
 
     executor(t)

@@ -26,5 +26,8 @@ class Git:
             tasks.append(task)
         await asyncio.gather(*tasks)
 
+    def download_project(self, conf):
+        asyncio.run(self.main(conf), debug=True)
+
 
 git = Git()
