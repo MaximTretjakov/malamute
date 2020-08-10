@@ -21,13 +21,9 @@ def executor(tasks_obj):
 if __name__ == '__main__':
     # все это будет приходить с фронта
     t = {
-        "targets": [
-            "https://github.com/MaximTretjakov/questionnaire/archive/master.zip"
-        ],
-        "build_dir": [
-            r"C:\Users\KARMA\Desktop\Projects\build\questionnaire.zip"
-        ],
-        "chunk_size": 50,
+        "targets": 'https://github.com/MaximTretjakov/questionnaire/archive/master.zip',
+        "build_dir": r"C:\Users\KARMA\Desktop\Projects\build\questionnaire.zip",
+        "chunk_size": 150,
         "zip_name": "questionnaire.zip",
         "build_script_path": r"C:\Users\KARMA\Desktop\Projects\build\questionnaire-master\build_project.bat",
         "cwd": r'C:\Users\KARMA\Desktop\Projects\build\questionnaire-master'

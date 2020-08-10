@@ -3,14 +3,14 @@ from typing import Any
 import subprocess
 
 from cor.base_handler import AbstractHandler
-from helper.git import git
+from helper.git import download_project
 from helper.common import unzip_project
 
 
 class GitHandler(AbstractHandler):
     def handle(self, request: Any) -> str:
         if request:
-            git.download_project(request)
+            download_project(request)
             unzip_project(request)
             super().handle(request)
         else:
