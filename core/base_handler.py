@@ -2,7 +2,7 @@ from __future__ import annotations
 from abc import abstractmethod
 from typing import Any
 
-from cor.handler_interface import Handler
+from core.handler_interface import Handler
 
 
 class AbstractHandler(Handler):
