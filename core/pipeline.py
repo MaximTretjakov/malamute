@@ -1,4 +1,4 @@
-from cor.handlers import GitHandler, BuildHandler, DeployHandler
+from core.handlers import GitHandler, BuildHandler, DeployHandler
 
 
 def executor(tasks_obj):

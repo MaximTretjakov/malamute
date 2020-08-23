@@ -2,10 +2,10 @@ from __future__ import annotations
 from typing import Any
 import subprocess
 
-from cor.base_handler import AbstractHandler
-from helper.git import download_project
-from helper.common import unzip_project
-from helper.log import malamute_logger
+from core.base_handler import AbstractHandler
+from core.helper import download_project
+from core.helper.common import unzip_project
+from core.helper import malamute_logger
 
 
 class GitHandler(AbstractHandler):
