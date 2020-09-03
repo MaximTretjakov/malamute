@@ -1,0 +1,50 @@
+<ul class="menu">
+    <li>
+        <a href="{% url 'mainapp:home' %}" {% if 'home' in request.resolver_match.url_name %}class="active"{% endif %}>
+            домой
+        </a>
+    </li>
+    <li>
+        <a href="{% url 'mainapp:products' %}" {% if 'products' in request.resolver_match.url_name %}class="active"{% endif %}>
+            продукты
+        </a>
+    </li>
+    <li>
+        <a href="{% url 'mainapp:contact' %}" {% if 'contact' in request.resolver_match.url_name %}class="active"{% endif %}>
+            контакты
+        </a>
+    </li>
+    {% if user.is_superuser %}
+    <li>
+        <a href="{% url 'adminapp:users' %}">
+            админка
+        </a>
+    </li>
+    {% endif %}
+    {% if user.is_authenticated %}
+    <li>
+        <a href="{% url 'authapp:edit' %}" {% if 'contact' in request.resolver_match.url_name %}class="active"{% endif %}>
+            {{ user.username }}
+        </a>
+    </li>
+    <li>
+        <a href="{% url 'authapp:logout' %}" {% if 'contact' in request.resolver_match.url_name %}class="active"{% endif %}>
+            выход
+        </a>
+    </li>
+    {% else %}
+    <li>
+        <a href="{% url 'authapp:login' %}" {% if 'contact' in request.resolver_match.url_name %}class="active"{% endif %}>
+            вход
+        </a>
+    </li>
+    {% endif %}
+</ul>
+<a href="#" class="search"></a>
+<a href="{% url 'basketapp:view' %}" class="basket">
+    <span class="counter">
+        {% if basket %}
+            {{ basket.0.total_cost|floatformat:0 }} руб ({{ basket.0.total_quantity }} шт)
+        {% endif %}
+    </span>
+</a>
