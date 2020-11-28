@@ -1,8 +1,15 @@
 <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-            <a class="nav-link" href="#">Логин</a>
+            {% if user.is_authenticated %}
+        <li class="nav-item">
+            <a href="{% url 'authapp:logout' %}" class="nav-link">Выход</a>
         </li>
+            {% else %}
+        <li class="nav-item">
+            <a href="{% url 'authapp:login' %}" class="nav-link">Вход</a>
+        </li>
+            {% endif %}
         <li class="nav-item">
             <a class="nav-link" href="#">Ваши проекты</a>
         </li>

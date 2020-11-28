@@ -13,18 +13,18 @@
         <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
         <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
     </form>
-    </div>
 </nav>
 {% endblock %}
 
 {% block content %}
-<main role="main" class="container">
-
-    <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a
-            mostly barebones HTML document.</p>
-    </div>
-
-</main>
+<div class="offset"></div>
+<div class="container">
+  <div class="row">
+   <div class="col-md-8 offset-md-2 text-center">
+       <p>
+           <a href="#"><img class="rounded" src="{% static 'img/logo/logo_transparent.png' %}" width="200" height="200" alt="logotype"></a>
+       </p>
+   </div>
+  </div>
+</div>
 {% endblock %}
