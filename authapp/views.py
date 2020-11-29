@@ -14,7 +14,7 @@ class LoginPageView(FormView):
             user = auth.authenticate(username=username, password=password)
             if user and user.is_active:
                 auth.login(request, user)
-                return HttpResponseRedirect(reverse('mainapp:home'))
+                return HttpResponseRedirect(reverse('projectapp:main'))
             else:
                 return HttpResponse('Invalid login')
         else:
