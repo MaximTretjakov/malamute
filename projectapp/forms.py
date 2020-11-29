@@ -5,7 +5,14 @@ from projectapp.models import Project
 class ProjectUserForm(forms.ModelForm):
     class Meta:
         model = Project
-        fields = ('name',)
+        fields = (
+            'name',
+            'git_url',
+            'download_dir_path',
+            'zip_project',
+            'build_script_path',
+            'unzip_project_dir',
+        )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
