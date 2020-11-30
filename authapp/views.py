@@ -39,6 +39,7 @@ class RegisterPageView(FormView):
         register_form = ShopUserRegisterForm(request.POST, request.FILES)
         if register_form.is_valid():
             register_form.save()
+            return HttpResponseRedirect(reverse('authapp:login'))
         else:
             return render(request, 'authapp/register.html', {'register_form': register_form})
 
